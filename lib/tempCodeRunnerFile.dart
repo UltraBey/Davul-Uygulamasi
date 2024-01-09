@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    DrumMachine(),
-  );
+  runApp(DrumMachine());
 }
 
 class DrumMachine extends StatelessWidget {
@@ -13,9 +11,7 @@ class DrumMachine extends StatelessWidget {
   final player = AudioPlayer();
   void sesiCal(String ses) async {
     await player.play(
-      AssetSource(
-        '$ses.wav',
-      ),
+      AssetSource('$ses.wav'),
     );
   }
 
@@ -41,15 +37,10 @@ class DrumMachine extends StatelessWidget {
                           child: newMethod(
                             'bip',
                             Color.fromARGB(255, 248, 0, 0),
-                            'Obo Formasyonu',
                           ),
                         ),
                         Expanded(
-                          child: newMethod(
-                            'bongo',
-                            Colors.green,
-                            'Obo Formasyonu',
-                          ),
+                          child: newMethod('bongo', Colors.green),
                         ),
                       ],
                     ),
@@ -62,18 +53,11 @@ class DrumMachine extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Expanded(
-                          child: newMethod(
-                            'clap1',
-                            Color.fromARGB(255, 0, 0, 0),
-                            'Obo Formasyonu',
-                          ),
+                          child:
+                              newMethod('clap1', Color.fromARGB(255, 0, 0, 0)),
                         ),
                         Expanded(
-                          child: newMethod(
-                            'crash',
-                            Colors.blue,
-                            'Obo Formasyonu',
-                          ),
+                          child: newMethod('crash', Colors.blue),
                         ),
                       ],
                     ),
@@ -89,14 +73,12 @@ class DrumMachine extends StatelessWidget {
                           child: newMethod(
                             'how',
                             Colors.brown,
-                            'Obo Formasyonu',
                           ),
                         ),
                         Expanded(
                           child: newMethod(
                             'oobah',
-                            Colors.transparent,
-                            'Obo Formasyonu',
+                            Color.fromARGB(255, 255, 255, 0),
                           ),
                         ),
                       ],
@@ -113,16 +95,13 @@ class DrumMachine extends StatelessWidget {
                           child: newMethod(
                             'ridebel',
                             const Color.fromARGB(255, 141, 127, 1),
-                            'Obo Formasyonu',
                           ),
                         ),
                         Expanded(
-                          child: newMethod(
-                            'woo',
-                            Colors.indigoAccent,
-                            'Obo Formasyonu',
-                          ),
-                        ),
+                            child: newMethod(
+                          'woo',
+                          Colors.indigoAccent,
+                        )),
                       ],
                     ),
                   ),
@@ -137,16 +116,13 @@ class DrumMachine extends StatelessWidget {
                           child: newMethod(
                             'clap3',
                             Colors.amber,
-                            'Obo Formasyonu',
                           ),
                         ),
                         Expanded(
-                          child: newMethod(
-                            'clap2',
-                            Colors.lime,
-                            'Obo Formasyonu',
-                          ),
-                        ),
+                            child: newMethod(
+                          'clap2',
+                          Colors.lime,
+                        )),
                       ],
                     ),
                   ),
@@ -159,33 +135,21 @@ class DrumMachine extends StatelessWidget {
     );
   }
 
-  Padding newMethod(String ses, Color renk, String yazi) {
+  Padding newMethod(String ses, Color renk) {
     return Padding(
-      padding: const EdgeInsets.all(
-        4.0,
-      ),
+      padding: const EdgeInsets.all(4.0),
       child: Container(
         width: 240,
         height: 180,
         child: ElevatedButton(
           onPressed: () {
-            sesiCal(
-              ses,
-            );
+            sesiCal(ses);
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: renk,
-            padding: EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: 8,
-            ),
+            primary: renk, // Set the background color here
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           ),
-          child: Text(
-            yazi,
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          ),
+          child: Text('Vur Bana :)', style: TextStyle(fontSize: 18)),
         ),
       ),
     );
